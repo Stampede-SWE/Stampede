@@ -1,2 +1,1 @@
 # Stampede
-Development repository.
