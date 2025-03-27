@@ -9,8 +9,4 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     #     get signup_url
     #     assert_response :success
     # end
-    # test "get rails app" do
-    #     get root_url
-    #     assert_response :success
-    # end
 end
