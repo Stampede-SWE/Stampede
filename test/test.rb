@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ExampleTest < ActiveSupport::TestCase
   test "my example" do
