@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_27_000325) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_27_013506) do
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_27_000325) do
     t.integer "User_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
     t.index ["User_id"], name: "index_listings_on_User_id"
   end
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_27_000325) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
   end
 
   add_foreign_key "listings", "Users"
