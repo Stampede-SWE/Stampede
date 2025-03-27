@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root "pages#login"
   get "/login", to: "pages#login"
   # get "/market", to: "pages#market"
-  # post "/login", to: "pages#create"
+  post "/login", to: "pages#create"
   # get "/logout", to: "pages#logout"
   # post "/logout", to: "pages#logout"
   # get "/signup", to: "pages#signup"
