@@ -1,0 +1,11 @@
+<h1>All Listings</h1>
+
+<% @listings.each do |listing| %>
+  <div>
+    <h2><%= listing.title %></h2>
+    <p><strong>Price:</strong> $<%= listing.price %></p>
+    <p><strong>Category:</strong> <%= listing.category %></p>
+    <p><strong>Description:</strong> <%= listing.description %></p>
+    <hr>
+  </div>
+<% end %>
