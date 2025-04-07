@@ -1,4 +1,3 @@
 # Stampede
-Development repository
 
-This change is for my branch.
+3/13 changes. 10pm.
