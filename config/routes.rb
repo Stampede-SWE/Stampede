@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "/login", to: "pages#login"
   post "/login", to: "pages#create"
-  get "/market", to: "pages#market"
+  # get "/market", to: "pages#market"
   get "/signup", to: "pages#signup"
   delete "/logout", to: "pages#destroy"
 
