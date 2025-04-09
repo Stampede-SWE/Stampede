@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "pages#login"
 
   get "/login", to: "pages#login"
