@@ -12,4 +12,8 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
     get listings_url
     assert_response :success
   end
+  test "listings are listed" do
+    get listings_url
+    assert_select 'div.listing', count: Listing.count
+  end
 end
