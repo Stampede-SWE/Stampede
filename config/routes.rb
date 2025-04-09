@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#login"
 
-  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
 
   get "/login", to: "pages#login"
   post "/login", to: "pages#create"
   get "/market", to: "pages#market"
-  
+
   get "/signup", to: "pages#signup"
-  
+
   delete "/logout", to: "pages#destroy"
 end

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-    before_action :require_login, only: [:market]
+    before_action :require_login, only: [ :market ]
 
     def login
     end
