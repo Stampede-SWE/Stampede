@@ -24,5 +24,9 @@ Rails.application.routes.draw do
 
   # routes for posting items
   get "/sell-my-stuff", to: "pages#listing_form"
+  post "/sell-my-stuff", to: "pages#create_listing"
+
+  get "/successful-post", to:"pages#successful_post"
+
 
 end
