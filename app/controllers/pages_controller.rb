@@ -29,4 +29,10 @@ class PagesController < ApplicationController
 
     def market
     end
+
+    def listing_form
+        @listing = Listing.new
+    end
+
+
 end

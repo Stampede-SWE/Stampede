@@ -1,0 +1,23 @@
+<%= form_with model: @listing, url: sell_my_stuff_path, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "selling", placeholder: "Enter the title of your item" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Describe the item you're selling" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: "form-control", step: "0.01", placeholder: "Enter the price" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :location %>
+    <%= form.text_field :location, class: "form-control", placeholder: "Enter the location" %>
+  </div>
+
+  <%= form.submit "Post Listing", class: "btn btn-primary" %>
+<% end %>

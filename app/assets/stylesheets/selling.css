@@ -1,0 +1,77 @@
+/* General Page Styling */
+body {
+    background-color: rgb(103, 239, 103); /* Set the background color of the page to green */
+    color: white; /* Set the text color to white */
+    font-family: Arial, sans-serif; /* Set a clean, sans-serif font */
+    height: 100vh; /* Make the body take the full viewport height */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container to center the form */
+  .container {
+    background-color: white; /* White background for the form container */
+    padding: 30px;
+    border-radius: 8px; /* Round the corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    width: 100%;
+    max-width: 600px; /* Maximum width for the form */
+    box-sizing: border-box;
+  }
+  
+  /* Style for form group elements (form fields and labels) */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for form labels */
+  .form-label {
+    font-weight: bold;
+    display: block; /* Make the label block-level */
+    margin-bottom: 5px;
+    color: #f6f4f4; /* Darker text for labels */
+  }
+  
+  /* Style for form fields */
+  .form-control {
+    width: 100%; /* Make the input take up the full width of the container */
+    padding: 10px;
+    border: 1px solid #f8f5f5; /* Light gray border */
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Light background for the form fields */
+  }
+  
+  /* Style for the submit button */
+  .btn-submit {
+    background-color: #007BFF; /* Blue color for the button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Make the button span the full width of the form */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the submit button */
+  .btn-submit:hover {
+    background-color: #0056b3; /* Darker blue when the button is hovered */
+  }
+  
+  /* Additional focus styling for form fields */
+  .form-control:focus {
+    border-color: #66afe9; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* For better visual feedback on form submission */
+  form {
+    max-width: 500px;
+    width: 100%; /* Ensure the form uses all available width up to max-width */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  

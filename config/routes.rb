@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   get "/signup", to: "pages#signup"
 
   delete "/logout", to: "pages#destroy"
+
+  # routes for posting items
+  get "/sell-my-stuff", to: "pages#listing_form"
+
 end
