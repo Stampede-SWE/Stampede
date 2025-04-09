@@ -28,5 +28,6 @@ class PagesController < ApplicationController
       end
 
     def market
+        @listings = Listing.all
     end
 end
