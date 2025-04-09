@@ -12,7 +12,6 @@ class UsersController < ApplicationController
             render :signup
         end
     end
-
     def show
         @user = User.find(params[:id])
     end
