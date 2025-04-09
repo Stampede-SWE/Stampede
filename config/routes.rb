@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/signup", to: "pages#signup"
   delete "/logout", to: "pages#destroy"
 
-  resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
   resources :listings
 
   get "up" => "rails/health#show", as: :rails_health_check
