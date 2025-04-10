@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
         if !!@user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to market_path
+            redirect_to listings_path
         else
 
             # message = "Something went wrong! Make sure your username and password are correct."
@@ -28,5 +28,6 @@ class PagesController < ApplicationController
       end
 
     def market
+        @listings = Listing.all
     end
 end
