@@ -1,0 +1,12 @@
+
+<% if logged_in? %>
+    <h1><%= @listing.title %></h1>
+    <p><%= @listing.description %></p>
+    <p>Price: $<%= @listing.price %></p>
+
+    <%= link_to 'Back to Listings', listings_path %>
+    <hr>
+    <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+<% else %>
+  <p>Please log in to view the marketplace.</p>
+<% end %>
