@@ -16,4 +16,9 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
     get listings_url
     assert_select "div.listing", count: Listing.count
   end
+  test "individual listing page works" do
+    get listing_url(listings(:one))
+    assert_response :success
+    assert_select "h1", text: listings(:one).title
+  end
 end
