@@ -7,6 +7,13 @@
             <p><strong>Price:</strong> $<%= listing.price %></p>
             <p><strong>Category:</strong> <%= listing.category %></p>
             <p><strong>Location:</strong> <%= listing.location %></p>
+
+            <% if listing.user == current_user %>
+                <p>
+                    <%= link_to "Edit", edit_listing_path(listing) %> |
+                    <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
+                 </p>
+            <% end %>
             <hr>
         </div>
     <% end %>
