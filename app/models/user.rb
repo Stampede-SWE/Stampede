@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
     def normalize_phone_number
         if phone.present?
-            self.phone = phone.gsub(/\D/, '')
+            self.phone = phone.gsub(/\D/, "")
         end
     end
 end
