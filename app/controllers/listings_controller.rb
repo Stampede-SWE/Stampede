@@ -40,5 +40,4 @@ class ListingsController < ApplicationController
       redirect_to market_path, alert: "You can only manage your own listings."
     end
   end
-
 end
