@@ -1,9 +1,21 @@
   /* Listings */
 .market-header {
-text-align: center;
-font-size: 36px;
-margin: 40px 0;
+    margin: 40px 0;
+    text-align: center;
+    font-size: 44px;
+    letter-spacing: 2px;
+    color: #06593f;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+.market-header::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 4px;
+    background: #06593f;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
 
 /* Listings group */
 .listings-all {
@@ -18,27 +30,36 @@ margin: 40px 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #054631;
     border-radius: 8px;
     background-color: #057d57;
     text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   .listing:hover {
-    background-color: #22a179; /* Light gray background when hovered */
+    background-color: #15996f;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   .listing a {
     color: inherit;
     text-decoration: none;
   }
 
-
-  .listing p {
+  .listing-tag {
+    font-weight: normal;
+    background-color: #006341;
     color: white;
+    padding: 4px 10px;
+    border-radius: 9999px;
   }
+  
 
   .listing-title {
     color: white;
     text-decoration: none;
+    text-align: center;
+    font-size: 36px;
   }
 
   .listing-title a {
@@ -46,3 +67,25 @@ margin: 40px 0;
     text-decoration: none;
   }
 
+  .listing-buttons {
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 100%;
+  }
+
+  .edit-button, .delete-button {
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: normal;
+    background-color: #006341;
+    padding: 4px 10px;
+    border-radius: 9999px;
+  }
+  .edit-button {
+    background-color: #175883;
+  }
+  .delete-button {
+    background-color: #6a1e26;
+    margin-left: auto;
+  }

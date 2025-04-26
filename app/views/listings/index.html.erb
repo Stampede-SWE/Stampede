@@ -40,15 +40,15 @@
             <div class="listing">
                 <%= link_to listing_path(listing) do %>
                     <h2 class="listing-title"><%= listing.title %></h2>
-                    <p><strong>Price:</strong> $<%= listing.price %></p>
-                    <p><strong>Category:</strong> <%= listing.category %></p>
-                    <p><strong>Location:</strong> <%= listing.location %></p>
+                    <p class="listing-tag"><strong>Price:</strong> $<%= listing.price %></p>
+                    <p class="listing-tag"><strong>Category:</strong> <%= listing.category %></p>
+                    <p class="listing-tag"><strong>Location:</strong> <%= listing.location %></p>
 
                     <% if listing.user == current_user %>
-                        <p>
-                            <%= link_to "Edit", edit_listing_path(listing) %> |
-                            <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
-                        </p>
+                        <div class="listing-buttons">
+                            <%= link_to "Edit", edit_listing_path(listing), class: "edit-button" %>
+                            <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
+                        </div>
                     <% end %>
                 <% end %>
             </div>
