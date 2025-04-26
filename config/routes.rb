@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :listings
   
   resources :messages, only: [ :new, :create ]
-  get "inbox", to: "messages#inbox", as: "inbox"
   get "messages/unified", to: "messages#unified", as: "unified_messages"
 
 
