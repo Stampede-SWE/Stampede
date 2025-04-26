@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :require_login, only: [ :index, :show ]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [ :edit, :update, :destroy ]
 
   def index
     @listings = Listing.all
