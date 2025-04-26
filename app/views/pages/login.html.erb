@@ -1,21 +1,56 @@
-<body class="main-bg">
-  <div class="login-container text-c animated flipInX">
-    <h3 class="text-whitesmoke-header">Stampede</h3>
-    <div class="container-content">
-      <%= form_with url: '/login', method: :post, local: true, class: "margin-t" do |f| %>
-        <div class="form-group">
-          <%= f.text_field :username, class: "form-control", placeholder: "Username", required: true %>
-        </div>
-        <div class="form-group">
-          <%= f.password_field :password, class: "form-control", placeholder: "Password", required: true %>
-        </div>
-        <%= f.submit "Sign In", class: "form-button button-l margin-t-xs margin-b" %>
+<!DOCTYPE html>
 
-        <a class="text-darkyellow" href="/forgot-password"><small>Forgot your password?</small></a>
-        <p class="text-whitesmoke text-center"><small>Do not have an account?</small></p>
-        <a class="text-darkyellow" href="/signup"><small>Sign Up</small></a>
-      <% end %>
-      <p class="margin-t text-whitesmoke"><small> Stampede &copy; 2025</small></p>
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "pages/login" %>
+<% end %>
+
+<head>
+</head>
+
+<body>
+  <div class="main-header">
+    <div class="main-header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "main-header-logo" %>
+    </div>
+    <div class="main-header-middle">
+      <p class="main-header-text">
+        Stampede
+      </p>
     </div>
   </div>
-</body>
+  <div class="login">
+    <div class="login-container">
+      <div class="login-text">
+        Login
+      </div>
+
+      <% if flash[:notice] %>
+        <div class="flash-message notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash-message alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <%= form_with url: '/login', method: :post, local: true do |f| %>
+        <div class="input-group">
+          <p class="input-header">Username</p>
+          <%= f.text_field :username, class: "login-input", placeholder: "Username", required: true %>
+        </div>
+        <div class="input-group">
+          <p class="input-header">Password</p>
+          <%= f.password_field :password, class: "login-input", placeholder: "Password", required: true %>
+        </div>
+        <%= f.submit "Sign In", class: "signin-button" %>
+      <% end %>
+
+      <%# <a class="link-text" href="/forgot-password">Forgot your password?</a> %>
+      <p class="text-whitesmoke link-header">Do not have an account?</p>
+      <a class="link-text" href="/signup">Sign Up</a>
+      <p class="margin-t text-whitesmoke link-header"><small> Stampede &copy; 2025</small></p>
+    </div>
+  </div>
+<body>

@@ -177,29 +177,7 @@ html {
   /* Backgrounds */
   
   .main-bg {
-    background: #424242;
-    background: linear-gradient(#424242, #212121);
-  }
-
-  /* Login & Register Pages*/
-
-  .login-container {
-    max-width: 400px;
-    z-index: 100;
-    margin: 0 auto;
-    padding-top: 300px;
-  }
-  .login.login-container {
-    width: 300px;
-  }
-  .wrapper.login-container {
-    margin-top: 140px;
-  }
-  .logo-badge {
-    color: #e6e6e6;
-    font-size: 80px;
-    font-weight: 800;
-    letter-spacing: -10px;
-    margin-bottom: 0;
+    background: beige;
+    /* background: linear-gradient(#424242, #212121); */
   }
   

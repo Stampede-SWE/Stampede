@@ -8,3 +8,20 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ .flash-message {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.notice {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert {
+  background-color: #f8d7da;
+  color: #721c24;
+}
