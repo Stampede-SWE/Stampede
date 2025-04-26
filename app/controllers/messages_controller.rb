@@ -15,9 +15,13 @@ class MessagesController < ApplicationController
       end
     end
   
-    def inbox
-      @messages = current_user.received_messages.order(created_at: :desc)
+    def unified
+      @received_messages = current_user.received_messages.order(created_at: :desc)
+      @sent_messages = current_user.sent_messages.order(created_at: :desc)
     end
+    
+
+
   
     private
   

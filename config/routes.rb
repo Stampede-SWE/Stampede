@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   
   resources :messages, only: [ :new, :create ]
   get "inbox", to: "messages#inbox", as: "inbox"
+  get "messages/unified", to: "messages#unified", as: "unified_messages"
+
+
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
