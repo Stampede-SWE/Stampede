@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
   resources :listings
+  
+  resources :messages, only: [ :new, :create ]
+  get "messages/unified", to: "messages#unified", as: "unified_messages"
+
+
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

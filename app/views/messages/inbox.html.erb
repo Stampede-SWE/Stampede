@@ -1,0 +1,14 @@
+<h1>Inbox</h1>
+
+<% if @messages.any? %>
+  <% @messages.each do |message| %>
+    <div>
+      <p><strong>From:</strong> <%= message.sender.username %></p>
+      <p><%= message.body %></p>
+      <p><em>Sent at: <%= message.created_at.strftime("%b %d, %Y %H:%M") %></em></p>
+      <hr>
+    </div>
+  <% end %>
+<% else %>
+  <p>No messages yet.</p>
+<% end %>
