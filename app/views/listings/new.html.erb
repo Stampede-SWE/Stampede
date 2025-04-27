@@ -1,29 +1,92 @@
 <h1>Post a listing</h1>
 
+<style>
+  /* Center the form and header */
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    color: #009933; /* Green header */
+  }
+
+  form {
+    background-color: #e6ffe6; /* Light teal background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto; /* Center the form horizontally */
+  }
+
+  form .field {
+    margin-bottom: 15px;
+  }
+
+  form input, form select, form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #009933; /* Green border for input fields */
+    border-radius: 5px;
+  }
+
+  form input[type="submit"] {
+    background-color: #009933; /* Green background for the submit button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green when hover */
+  }
+
+  .error_messages {
+    color: red;
+    font-weight: bold;
+  }
+
+  .error_messages ul {
+    padding-left: 20px;
+  }
+</style>
+
 <%= form_for @listing do |form| %>
+
+  <% if @listing.errors.any? %>
+    <div class="error_messages">
+      <ul>
+        <% @listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true, placeholder: "Enter the title of the listing" %> <!-- Added placeholder -->
   </div>
 
   <div class="field">
     <%= form.label :description %><br>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, required: true, placeholder: "Describe the listing" %> <!-- Added placeholder -->
   </div>
 
   <div class="field">
     <%= form.label :price %><br>
-    <%= form.number_field :price, step: 0.01 %>
+    <%= form.number_field :price, step: 0.01, required: true, placeholder: "Enter the price" %> <!-- Added placeholder -->
   </div>
 
   <div class="field">
     <%= form.label :campus %><br>
-    <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"]) %>
+    <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
   </div>
 
   <div class="field">
     <%= form.label :category %><br>
-    <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"]) %>
+    <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], prompt: "Select a category"), { required: true } %> <!-- Added prompt -->
   </div>
 
   <div class="actions">

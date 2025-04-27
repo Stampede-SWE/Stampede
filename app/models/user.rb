@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-    has_many :listings, foreign_key: "User_id"
+    has_many :listings, foreign_key: "user_id"
 
     has_secure_password
     has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
