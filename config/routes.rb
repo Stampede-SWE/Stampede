@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   post "/reset-password", to: "users#resetpassword"
   resources :users
   resources :listings
+  
+  resources :messages, only: [ :new, :create ]
+  get "messages/unified", to: "messages#unified", as: "unified_messages"
+
+
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

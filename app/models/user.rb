@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :listings
     has_secure_password
+    has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
+    has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
     before_validation :normalize_phone_number
     validates :displayname, presence: true, length: { minimum: 3, message: "must be 3 characters long" }
     validates :username, presence: true, length: { minimum: 5, message: "must be 5 characters long" }, format: { with: /\A[a-zA-Z0-9]+\z/, message: "only letters and numbers are allowed" }, uniqueness: true

@@ -19,6 +19,9 @@
       </p>
     </div>
     <div class="header-right">
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
       <div class="header-profile">
         <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
       </div>
@@ -40,21 +43,20 @@
             <div class="listing">
                 <%= link_to listing_path(listing) do %>
                     <h2 class="listing-title"><%= listing.title %></h2>
-                    <p><strong>Price:</strong> $<%= listing.price %></p>
-                    <p><strong>Category:</strong> <%= listing.category %></p>
-                    <p><strong>Location:</strong> <%= listing.location %></p>
+                    <p class="listing-tag"><strong>Price:</strong> $<%= listing.price %></p>
+                    <p class="listing-tag"><strong>Category:</strong> <%= listing.category %></p>
+                    <p class="listing-tag"><strong>Location:</strong> <%= listing.location %></p>
 
                     <% if listing.user == current_user %>
-                        <p>
-                            <%= link_to "Edit", edit_listing_path(listing) %> |
-                            <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
-                        </p>
+                        <div class="listing-buttons">
+                            <%= link_to "Edit", edit_listing_path(listing), class: "edit-button" %>
+                            <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
+                        </div>
                     <% end %>
                 <% end %>
             </div>
         <% end %>
     </div>
-  
 
 <% else %>
   <p>Please log in to view the marketplace.</p>
