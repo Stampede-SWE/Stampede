@@ -9,6 +9,7 @@
     margin-top: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
+    background-color: #f2f7f2;
 }
 
 
@@ -35,6 +36,21 @@
 .edit-labels {
     margin-bottom: 20px;
 }
+
+.edit-labels input,
+.edit-labels select {
+    padding: 5px;
+    border: 1px solid #0f5727;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.edit-labels textarea {
+    padding: 5px;
+    border: 1px solid #0f5727;
+    border-radius: 5px;
+}
+
 
 .update-btn {
     display: block;

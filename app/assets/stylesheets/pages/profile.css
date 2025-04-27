@@ -5,7 +5,7 @@
     padding: 20px;
     padding-bottom: 50px;
     margin-top: 70px;
-    background-color: rgb(255, 255, 255);
+    background-color: #f2f7f2;
     border-radius: 30px;
     text-align: center;
 }
@@ -20,7 +20,10 @@
     border-width: 1px;
     border-radius: 10px;
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.4);
+    background-color: #06593f;
+    color: white;
     padding: 5px;
+    border-color: black;
 }
 
 .profile-info {

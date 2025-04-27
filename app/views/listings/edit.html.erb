@@ -39,30 +39,35 @@
     <%= form_with(model: @listing, local: true) do |form| %>
       <div class="edit-labels">
         <%= form.label :title %>
-        <%= form.text_field :title %>
+        <%= form.text_field :title, style: "width: 97%" %>
       </div>
 
       <div class="edit-labels">
         <%= form.label :description %>
-        <%= form.text_area :description, style: "width: 98%; min-height: 60px;"%>
+        <%= form.text_area :description, style: "width: 97%; min-height: 60px;"%>
       </div>
 
       <div class="edit-labels">
         <%= form.label :price %>
-        <%= form.number_field :price, step: 0.01 %>
+        <%= form.number_field :price, step: 0.01, style: "width: 97%" %>
       </div>
 
       <div class="edit-labels">
         <%= form.label :category %>
-        <%= form.text_field :category %>
+        <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], prompt: "Select a category"), { required: true } %> <!-- Added prompt -->
       </div>
 
       <div class="edit-labels">
         <%= form.label :location %>
-        <%= form.text_field :location %>
+        <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
       </div>
 
-      <%= form.submit "Update", class: "btn btn-secondary update-btn" %>
+      <div class="actions">
+        <%= form.submit "Save", class: "btn btn-secondary update-btn", style: "width: 100%;" %>
+        <%= link_to "Cancel", listings_path, class: "btn show-back-button" %>
+      </div>
+
+
     <% end %>
   </div>
 

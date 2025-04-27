@@ -1,0 +1,78 @@
+/* Center the form and header */
+.h1-new {
+    text-align: center;
+    font-size: 2em;
+    color: #0f5727;
+    /* Green header */
+}
+
+.new-listing form {
+    background-color: #f2f7f2;
+    /* Light teal background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.new-listing form .field {
+    margin-bottom: 15px;
+}
+
+.new-listing form .field label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #04402d;
+
+}
+
+.new-listing form input,
+.new-listing form select {
+    width: 99%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #0f5727;
+    /* Green border for input fields */
+    border-radius: 5px;
+}
+
+.new-listing form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #0f5727;
+    /* Green border for input fields */
+    border-radius: 5px;
+}
+
+.new-listing form input[type="submit"] {
+    background-color: #0f5727;
+    /* Green background for the submit button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.new-listing form input[type="submit"]:hover {
+    background-color: #2e8140;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.error_messages {
+    color: red;
+    font-weight: bold;
+}
+
+.error_messages ul {
+    padding-left: 20px;
+}
+
+.actions .btn {
+    margin-top: 20px;
+}
