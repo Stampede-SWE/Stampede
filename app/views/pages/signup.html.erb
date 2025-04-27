@@ -1,24 +1,63 @@
-<body class="main-bg">
-  <div class="login-container text-c animated flipInX">
-    <h3 class="text-whitesmoke-header">Stampede</h3>
-    <div class="container-content">
-      <%= form_for @user do |f| %>
-        <p class="text-l margin-b-sm text-whitesmoke">Create a username</p>
-        <div class="form-group">
-          <%= f.text_field :username, class: "form-control", placeholder: "Username", required: true %>
-        </div>
+<!DOCTYPE html>
 
-        <p class="text-l margin-b-sm text-whitesmoke">Create a password</p>
-        <div class="form-group">
-          <%= f.password_field :password, class: "form-control", placeholder: "Password", required: true %>
-        </div>
+<% content_for :stylesheets do %>
+  <%= stylesheet_link_tag "pages/signup" %>
+<% end %>
 
-        <%= f.submit "Sign Up", class: "form-button button-l margin-t-md margin-b" %>
-        <br>
-        <%= link_to "Log In", login_path, class: "text-darkyellow" %>
-      <% end %>
+<head>
+</head>
 
-      <p class="margin-t text-whitesmoke"><small>Stampede &copy; 2025</small></p>
+<body>
+  <div class="main-header">
+    <div class="main-header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "main-header-logo" %>
+    </div>
+    <div class="main-header-middle">
+      <p class="main-header-text">
+        Stampede
+      </p>
     </div>
   </div>
-</body>
+  <div class="signup">
+    <div class="signup-container">
+      <div class="signup-text">
+        Sign Up
+      </div>
+
+      <% if flash[:notice] %>
+        <div class="flash-message notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash-message alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+      <%= form_for @user do |f| %>
+        <div class="input-group">
+          <p class="input-header">Create a username<span style="color: red">&#42</span></p>
+          <%= f.text_field :username, class: "signup-input", placeholder: "Username", required: true, minlength: 5 %>
+        </div>
+        <div class="input-group">
+          <p class="input-header">Create a password<span style="color: red">&#42</span></p>
+          <%= f.password_field :password, class: "signup-input", placeholder: "Password", required: true, minlength: 6 %>
+        </div>
+        <div class="input-group">
+          <p class="input-header">Phone Number<span style="color: red">&#42</span></p>
+          <%= f.phone_field :phone, class: "signup-input", placeholder: "Phone Number", required: true, 
+            pattern: "[\\d\\s\\-]{10,14}", 
+            title: "Phone number must be between 10-14 digits, including spaces or hyphens" %>
+        </div>
+        <div class="input-group">
+          <p class="input-header">Email &#40;optional&#41;</p>
+          <%= f.email_field :email, class: "signup-input", placeholder: "Email", required: false %>
+        </div>
+        <%= f.submit "Sign Up", class: "signup-button" %>
+      <% end %>
+      <a class="to-login-text" href="/login">Log In</a>
+      <p class="margin-t text-whitesmoke link-header"><small> Stampede &copy; 2025</small></p>
+    </div>
+  </div>
+<body>

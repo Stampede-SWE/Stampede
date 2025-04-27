@@ -1,15 +1,25 @@
 class UsersController < ApplicationController
-    def new
+    def signup
         @user = User.new
     end
 
     def create
-        @user = User.new(user_params)
-        if @user.save
-            # session[:user_id] = @user.id
-            redirect_to login_path
+        existingUser = User.exists?(username: user_params[:username])
+        if !existingUser
+            @user = User.new(user_params)
+            if @user.save
+                # session[:user_id] = @user.id
+                flash[:notice] = "Signed up successfully!"
+                redirect_to login_path
+            else
+                @user.errors.full_messages.each do |message|
+                flash[:alert] = message
+            end
+            redirect_to signup_path
+            end
         else
-            render :signup
+            flash[:alert] = "That username already exists!"
+            redirect_to signup_path
         end
     end
     def show
@@ -19,6 +29,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username, :password, :phone, :email)
     end
 end

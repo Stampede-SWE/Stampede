@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
+
+<head>
+</head>
+
+<body>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
+    </div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+  </div>
+
+
+
+  </div>
+
+  
+  <%# END OF HEADER! %>
+</body>
+
+
+
+

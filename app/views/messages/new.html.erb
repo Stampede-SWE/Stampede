@@ -1,0 +1,20 @@
+<h1 class="show-title">Send a Message</h1>
+
+<div class="message-form-container">
+  <%= form_with model: @message, local: true do |form| %>
+    <div class="form-group">
+      <label>To: <%= @recipient.username %></label>
+      <%= form.hidden_field :recipient_id, value: @recipient.id %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :body, "Message" %>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+
+    <div class="form-buttons">
+      <%= link_to "Back to Home", listings_path, class: "btn btn-secondary back-button" %>
+      <%= form.submit "Send", class: "btn btn-success send-button" %>
+    </div>
+  <% end %>
+</div>

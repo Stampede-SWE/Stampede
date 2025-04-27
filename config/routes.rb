@@ -5,11 +5,22 @@ Rails.application.routes.draw do
   post "/login", to: "pages#create"
   # get "/market", to: "pages#market"
   get "/signup", to: "pages#signup"
+  post "/signup", to: "users#create"
   delete "/logout", to: "pages#destroy"
+
   get "/new_listing", to: "listings#new"
+
+  get "/temp", to: "pages#temp"
+  get "profile", to: "pages#profile"
+
 
   resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
   resources :listings
+  
+  resources :messages, only: [ :new, :create ]
+  get "messages/unified", to: "messages#unified", as: "unified_messages"
+
+
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

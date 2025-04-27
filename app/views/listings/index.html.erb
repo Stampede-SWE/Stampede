@@ -1,19 +1,72 @@
-<% if logged_in? %>
-    <h1> Market </h1>
+<!DOCTYPE html>
 
-    <% @listings.each do |listing| %>
-        <div class="listing">
-            <h2><%= link_to listing.title, listing_path(listing) %></h2>
-            <p><strong>Price:</strong> $<%= listing.price %></p>
-            <p><strong>Category:</strong> <%= listing.category %></p>
-            <p><strong>Location:</strong> <%= listing.location %></p>
-            <hr>
-        </div>
-    <% end %>
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
+
+<head>
+</head>
+
+<body>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
+    </div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+    </div>
+  </div>
+  <%# END OF HEADER! %>
+
+  <% if logged_in? %>
     
+
     <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
-    <%= button_to "Sell My Stuff", new_listing_path, method: :get, class: "btn btn-primary" %>
+    
+
+    <div class="market-header">
+        <h1> Market </h1>
+    </div>
+
+    <div class="listings-all">
+        <% @listings.each do |listing| %>
+            <div class="listing">
+                <%= link_to listing_path(listing) do %>
+                    <h2 class="listing-title"><%= listing.title %></h2>
+                    <p class="listing-tag"><strong>Price:</strong> $<%= listing.price %></p>
+                    <p class="listing-tag"><strong>Category:</strong> <%= listing.category %></p>
+                    <p class="listing-tag"><strong>Location:</strong> <%= listing.location %></p>
+
+                    <% if listing.user == current_user %>
+                        <div class="listing-buttons">
+                            <%= link_to "Edit", edit_listing_path(listing), class: "edit-button" %>
+                            <%= link_to "Delete", listing_path(listing), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
 
 <% else %>
   <p>Please log in to view the marketplace.</p>
 <% end %>
+
+</body>
+
+
