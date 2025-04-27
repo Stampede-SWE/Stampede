@@ -1,20 +1,60 @@
-<h1 class="show-title">Send a Message</h1>
+<!DOCTYPE html>
 
-<div class="message-form-container">
-  <%= form_with model: @message, local: true do |form| %>
-    <div class="form-group">
-      <label>To: <%= @recipient.username %></label>
-      <%= form.hidden_field :recipient_id, value: @recipient.id %>
-    </div>
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
 
-    <div class="form-group">
-      <%= form.label :body, "Message" %>
-      <%= form.text_area :body, class: "form-control" %>
-    </div>
+<head>
+</head>
 
-    <div class="form-buttons">
-      <%= link_to "Back to Home", listings_path, class: "btn btn-secondary back-button" %>
-      <%= form.submit "Send", class: "btn btn-success send-button" %>
+<body>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
     </div>
-  <% end %>
-</div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+    </div>
+  </div>
+  <%# END OF HEADER! %>
+
+  <div>
+    <hr style="visibility: hidden;">
+  </div>
+
+  <h1 class="show-title">Send a Message</h1>
+
+  <div class="message-form-container">
+    <%= form_with model: @message, local: true do |form| %>
+      <div class="form-group">
+        <label>To: <%= @recipient.username %></label>
+        <%= form.hidden_field :recipient_id, value: @recipient.id %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :body, "Message" %>
+        <%= form.text_area :body, class: "form-control", style: "background-color: #ccc; color: #333; border: 1px solid #333; margin-top: 5px;" %>
+      </div>
+
+      <div class="form-buttons">
+        <%= link_to "Back to Listings", listings_path, class: "btn btn-secondary back-button" %>
+        <%= form.submit "Send", class: "btn btn-success send-button" %>
+      </div>
+    <% end %>
+  </div>
+
+</body>
