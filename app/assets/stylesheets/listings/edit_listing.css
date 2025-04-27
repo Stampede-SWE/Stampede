@@ -1,0 +1,61 @@
+/* Edit a listing*/
+
+
+.edit-container {
+    width: 50%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+
+
+.edit-listing {
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    color: #06593f;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+
+.edit-labels label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #04402d;
+}
+
+.edit-labels {
+    margin-bottom: 20px;
+}
+
+.update-btn {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    padding: 10px 20px;
+    background-color: #175524;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.update-btn:hover {
+    cursor: pointer;
+    background-color: #2e8140;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
