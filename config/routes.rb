@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get "/market", to: "pages#market"
   get "/signup", to: "pages#signup"
   delete "/logout", to: "pages#destroy"
+  get "/new_listing", to: "listings#new"
 
   resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
   resources :listings

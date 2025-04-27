@@ -12,6 +12,8 @@
     <% end %>
     
     <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+    <%= button_to "Sell My Stuff", new_listing_path, method: :get, class: "btn btn-primary" %>
+
 <% else %>
   <p>Please log in to view the marketplace.</p>
 <% end %>
