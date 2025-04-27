@@ -31,13 +31,20 @@
     </div>
   </div>
   <%# END OF HEADER! %>
-
+ 
   <% if logged_in? %>
     
+
+    
+    
+
     <div class="market-header">
         <h1> Market </h1>
-    </div>
 
+    </div>
+    <div>
+      <%= button_to "Sell My Stuff", new_listing_path, method: :get, class: "btn btn-primary", style: "display: block; margin: 20px auto;" %>
+    </div>
     <div class="listings-all">
         <% @listings.each do |listing| %>
             <div class="listing">
@@ -57,6 +64,7 @@
             </div>
         <% end %>
     </div>
+
 
 <% else %>
   <p>Please log in to view the marketplace.</p>
