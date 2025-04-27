@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   delete "/logout", to: "pages#destroy"
   get "/temp", to: "pages#temp"
-  get "profile", to: "pages#profile"
-
-  resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
+  get "/profile", to: "pages#profile"
+  get "/edit-profile", to: "pages#editprofile"
+  post "/edit-profile", to: "users#update"
+  get "/reset-password", to: "pages#resetpassword"
+  post "/reset-password", to: "users#resetpassword"
+  resources :users
   resources :listings
 
   get "up" => "rails/health#show", as: :rails_health_check

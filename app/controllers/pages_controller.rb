@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-    # before_action :require_login, only: [ :market ]
+    before_action :require_login, only: [ :profile, :editprofile, :resetpassword]
+    before_action :set_user, only: [:profile, :editprofile, :resetpassword]
 
     def login
     end
@@ -20,14 +21,32 @@ class PagesController < ApplicationController
         end
     end
 
+    def editprofile
+        if @user != current_user
+            redirect_to profile_path
+        end
+    end
+
+    def resetpassword
+        if @user != current_user
+            redirect_to profile_path
+        end
+    end
+
     def destroy
         session[:user_id] = nil
         flash[:notice] = "You have been logged out."
         redirect_to login_path
-      end
+    end
 
     def market
         @listings = Listing.all
+    end
+    
+    private
+
+    def set_user
+        @user = User.find_by(id: session[:user_id])
     end
 end
 # <%# <body class="main-bg">
