@@ -1,5 +1,6 @@
 /* Individual Listings Page */
 .show-container {
+    background-color: #f2f7f2;
     width: 80%;
     max-width: 900px;
     margin: 0 auto;
@@ -38,6 +39,7 @@
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
 }
 
 /* Description */
@@ -46,8 +48,9 @@
     font-size: 20px;
     margin-bottom: 40px;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
 }
 
 /* Message Seller */

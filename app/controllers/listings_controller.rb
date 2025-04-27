@@ -9,6 +9,23 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
+
+  def new
+    @listing = Listing.new
+  end
+
+  #create the listing
+  def create
+    @listing = current_user.listings.build(listing_params)
+ 
+    if @listing.save
+      redirect_to @listing, notice: 'Listing was successfuly created.'
+    else
+      render :new
+    end
+  end
+  
+
   def edit
     @listing = Listing.find(params[:id])
   end
@@ -39,5 +56,6 @@ class ListingsController < ApplicationController
     unless @listing.user == current_user
       redirect_to market_path, alert: "You can only manage your own listings."
     end
+
   end
 end

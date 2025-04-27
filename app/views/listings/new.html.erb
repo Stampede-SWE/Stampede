@@ -7,6 +7,7 @@
 <head>
 </head>
 
+
 <body>
   <%# !START OF HEADER %>
   <div class="header">
@@ -32,47 +33,51 @@
   </div>
   <%# END OF HEADER! %>
 
+  <h1 class="edit-listing">Post a Listing</h1>
 
-  <h1 class="edit-listing">Edit Listing</h1>
+  <div class="new-listing">
+    <%= form_for @listing do |form| %>
 
-  <div class="edit-container">
-    <%= form_with(model: @listing, local: true) do |form| %>
-      <div class="edit-labels">
-        <%= form.label :title %>
-        <%= form.text_field :title, style: "width: 97%" %>
+      <% if @listing.errors.any? %>
+        <div class="error_messages">
+          <ul>
+            <% @listing.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :title %><br>
+        <%= form.text_field :title, required: true, placeholder: "Enter the title of the listing", style: "width: 95%" %> <!-- Added placeholder -->
       </div>
 
-      <div class="edit-labels">
-        <%= form.label :description %>
-        <%= form.text_area :description, style: "width: 97%; min-height: 60px;"%>
+      <div class="field">
+        <%= form.label :description %><br>
+        <%= form.text_area :description, required: true, placeholder: "Describe the listing" %> <!-- Added placeholder -->
       </div>
 
-      <div class="edit-labels">
-        <%= form.label :price %>
-        <%= form.number_field :price, step: 0.01, style: "width: 97%" %>
+      <div class="field">
+        <%= form.label :price, "Price (USD)" %><br>
+        <%= form.number_field :price, step: 0.01, required: true, placeholder: "Enter the price", style: "width: 95%"  %> <!-- Added placeholder -->
       </div>
 
-      <div class="edit-labels">
-        <%= form.label :category %>
+      <div class="field">
+        <%= form.label :category %><br>
         <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], prompt: "Select a category"), { required: true } %> <!-- Added prompt -->
       </div>
-
-      <div class="edit-labels">
-        <%= form.label :location %>
+      
+      <div class="field">
+        <%= form.label :location %><br>
         <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
       </div>
 
+
       <div class="actions">
-        <%= form.submit "Save", class: "btn btn-secondary update-btn", style: "width: 100%;" %>
+        <%= form.submit "Post Listing" %>
         <%= link_to "Cancel", listings_path, class: "btn show-back-button" %>
       </div>
-
-
     <% end %>
   </div>
-
-  <div>
-    <hr style="visibility: hidden;">
-  </div>
-
-  </body>
+</body>

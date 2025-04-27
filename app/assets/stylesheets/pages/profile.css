@@ -5,7 +5,7 @@
     padding: 20px;
     padding-bottom: 50px;
     margin-top: 70px;
-    background-color: rgb(255, 255, 255);
+    background-color: #f2f7f2;
     border-radius: 30px;
     text-align: center;
 }
@@ -20,7 +20,10 @@
     border-width: 1px;
     border-radius: 10px;
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.4);
+    background-color: #06593f;
+    color: white;
     padding: 5px;
+    border-color: black;
 }
 
 .profile-info {
@@ -42,7 +45,7 @@
     border-color: black;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: #006470;
+    background-color: #06593f;
     color: white;
 }
 
@@ -62,8 +65,8 @@
 }
 
 .profile-edit-button {
-    background-color: #F1C40F;
-    color: black;
+    background-color: #06593f;
+    color: rgb(255, 255, 255);
     width: 25% auto;
     padding: 15px;
     border-radius: 15px;
@@ -71,18 +74,20 @@
     cursor: pointer;
     margin-top: 50px;
     align-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .profile-edit-button:hover {
-    color: blue;
+    color: rgb(0, 179, 255);
     font-weight: bold;
     font-size: 15px;
     border-width: 3px;
 }
 
+
 .to-profile-button {
-    background-color: #F1C40F;
-    color: black;
+    background-color: #06593f;
+    color: rgb(255, 255, 255);
     width: 25% auto;
     padding: 15px;
     border-radius: 15px;
@@ -90,10 +95,11 @@
     cursor: pointer;
     margin-top: 30px;
     align-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .to-profile-button:hover {
-    color: blue;
+    color: rgb(0, 179, 255);
     font-weight: bold;
     font-size: 15px;
     border-width: 3px;
