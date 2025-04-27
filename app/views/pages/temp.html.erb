@@ -19,19 +19,15 @@
       </p>
     </div>
     <div class="header-right">
-    <div class="header-profile">
-      <a href="/profile">
-        <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %>
-      </a>
-    </div>
-
-    <div class="header-messages">
-      <%= link_to "Messages", unified_messages_path, class: "logout-button", style: "display: block; padding-top: 15px; text-align: center;" %>
-    </div>
-
-    <div class="header-logout">
-      <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
-    </div>
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
   </div>
 
 

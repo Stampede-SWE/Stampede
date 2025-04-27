@@ -1,20 +1,62 @@
+<!DOCTYPE html>
+
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
+
+<head>
+</head>
+
+<body>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
+    </div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+    </div>
+  </div>
+  <%# END OF HEADER! %>
 <% if logged_in? %>
-  <h1><%= @listing.title %></h1>
+  <div class="show-container">
+    <h1 class="show-title"><%= @listing.title %></h1>
 
-  <p><strong>Description:</strong> <%= @listing.description %></p>
-  <p><strong>Price:</strong> $<%= @listing.price %></p>
-  <p><strong>Category:</strong> <%= @listing.category %></p>
-  <p><strong>Location:</strong> <%= @listing.location %></p>
+    <div class="show-info">
+      <p class="show-price"><strong>Price:</strong> $<%= @listing.price %></p>
+      <p class="show-category"><strong>Category:</strong> <%= @listing.category %></p>
+      <p class="show-location"><strong>Location:</strong> <%= @listing.location %></p>
+    </div>
 
-  <p><strong>Posted by:</strong> <%= @listing.user.username %></p>
+    <p class="show-description"><strong>Description:</strong> <%= @listing.description %></p>
 
-  <%= link_to "Message Seller", new_message_path(recipient_id: @listing.user.id), class: "btn btn-primary" %>
+    <%= link_to "Message Seller", new_message_path(recipient_id: @listing.user.id), class: "btn btn-primary show-message-button" %>
 
-  <hr>
+    <hr class="show-line">
 
-  <%= link_to 'Back to Listings', listings_path, class: "btn btn-secondary" %>
+    <div class="show-listing-buttons">
+      <% if @listing.user == current_user %>
+        <%= link_to "Edit", edit_listing_path(@listing), class: "btn btn-secondary show-edit" %>
+        <%= link_to "Delete", listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-secondary show-delete" %>
+      <% end %>
+    </div>
+    <%= link_to 'Back to Listings', listings_path, class: "btn btn-secondary show-back-button" %>
 
-  <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %>
+
+  </div>
 <% else %>
   <p>Please log in to view the marketplace.</p>
 <% end %>

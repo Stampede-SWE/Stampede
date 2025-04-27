@@ -1,4 +1,4 @@
-  /* Listings */
+/* Listings */
 .market-header {
     margin: 40px 0;
     text-align: center;
@@ -7,6 +7,7 @@
     color: #06593f;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+
 .market-header::after {
     content: "";
     display: block;
@@ -15,7 +16,7 @@
     background: #06593f;
     margin: 10px auto 0;
     border-radius: 2px;
-  }
+}
 
 /* Listings group */
 .listings-all {
@@ -24,9 +25,11 @@
     gap: 40px;
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-  .listing {
+    padding-bottom: 100px;
+}
+
+
+.listing {
     cursor: pointer;
     transition: background-color 0.3s ease;
     padding: 20px;
@@ -35,57 +38,75 @@
     background-color: #057d57;
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .listing:hover {
+}
+
+.listing:hover {
     background-color: #15996f;
     transform: scale(1.02);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  .listing a {
+}
+
+.listing a {
     color: inherit;
     text-decoration: none;
-  }
+}
 
-  .listing-tag {
+.listing-tag {
     font-weight: normal;
     background-color: #006341;
     color: white;
     padding: 4px 10px;
-    border-radius: 9999px;
-  }
-  
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .listing-title {
+
+.listing-title {
     color: white;
     text-decoration: none;
     text-align: center;
     font-size: 36px;
-  }
+}
 
-  .listing-title a {
+.listing-title a {
     color: inherit;
     text-decoration: none;
-  }
+}
 
-  .listing-buttons {
+.listing-buttons {
     display: flex;
     align-items: center;
     color: white;
     width: 100%;
-  }
+}
 
-  .edit-button, .delete-button {
+.edit-button,
+.delete-button {
     padding: 8px 16px;
     text-decoration: none;
     font-weight: normal;
     background-color: #006341;
     padding: 4px 10px;
-    border-radius: 9999px;
-  }
-  .edit-button {
+    border-radius: 8px;
+}
+
+.edit-button {
     background-color: #175883;
-  }
-  .delete-button {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.edit-button:hover {
+    background-color: #327fb3;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
     background-color: #6a1e26;
     margin-left: auto;
-  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.delete-button:hover {
+    background-color: #a43641;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

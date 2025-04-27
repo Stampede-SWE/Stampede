@@ -49,8 +49,9 @@ body {
 .header-right {
   display: flex;
   width: 150px;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  width: auto;
 }
 
 .header-profile {
@@ -91,4 +92,12 @@ body {
 
 .logout-button:hover {
   color: dodgerblue;
+}
+
+.header-messages {
+  margin-right: 10px;
+}
+
+.header-messages a {
+  text-decoration: none;
 }
