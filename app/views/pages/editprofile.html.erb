@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
+
+<head>
+</head>
+
+<body>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
+    </div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+    </div>
+  </div>
+  <%# END OF HEADER! %>
+
+    <% if flash[:notice] %>
+      <div class="flash-message notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="flash-message alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+  <div class="profile-container">
+    <h2 class="profile-header"> Editing <%= @user.displayname != "" && !!@user.displayname ? @user.displayname : @user.username %>'s Profile</h2>
+    <%= form_for @user do |f| %>
+      <div class="profile-info">
+        <div class="info-type">
+          Display Name
+        </div>
+        <%= f.text_field :displayname, class: "info-text", placeholder: @user.displayname, minlength: 3 %>
+      </div>
+      <div class="profile-info">
+        <div class="info-type">
+          Username
+        </div>
+        <%= f.text_field :username, class: "info-text", placeholder: @user.username, minlength: 5, autocomplete: "off" %>
+      </div>
+      <div class="profile-info">
+        <div class="info-type">
+          Phone
+        </div>
+        <%= f.phone_field :phone, class: "info-text", placeholder: @user.phone, 
+          pattern: "[\\d\\s\\-]{10,14}", 
+          title: "Phone number must be between 10-14 digits, including spaces or hyphens" %>
+      </div>
+      <div class="profile-info">
+        <div class="info-type">
+          Email
+        </div>
+        <%= f.email_field :email, class: "info-text", placeholder: @user.email %>
+      </div>
+      <%= f.submit "Update Profile", class: "profile-edit-button", data: { confirm: "Are you sure you want to update your profile?" }%>
+    <% end %>
+    <%= button_to "Back To Profile", "profile", method: :get, class: 'to-profile-button' %>
+  </div>
+</body>

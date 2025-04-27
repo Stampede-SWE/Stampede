@@ -11,12 +11,16 @@ Rails.application.routes.draw do
   get "/new_listing", to: "listings#new"
 
   get "/temp", to: "pages#temp"
-  get "profile", to: "pages#profile"
 
 
-  resources :users, only: [ :new, :create, :edit, :update, :show, :destroy ]
-  resources :listings
+  get "/profile", to: "pages#profile"
+  get "/edit-profile", to: "pages#editprofile"
+  post "/edit-profile", to: "users#update"
+  get "/reset-password", to: "pages#resetpassword"
+  post "/reset-password", to: "users#resetpassword"
   
+  resources :users
+  resources :listings
   resources :messages, only: [ :new, :create ]
   get "messages/unified", to: "messages#unified", as: "unified_messages"
 
