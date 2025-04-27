@@ -95,6 +95,13 @@ body {
   align-content: center;
 }
 
+.signin-button:hover {
+  color: blue;
+  font-weight: bold;
+  font-size: 15px;
+  border-width: 3px;
+}
+
 .link-header {
   color: white;
   font-size: medium;
