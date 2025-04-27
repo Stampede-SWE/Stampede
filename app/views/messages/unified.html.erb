@@ -1,31 +1,29 @@
-<h1>Messages</h1>
+<h1 class="show-title">Messages</h1>
 
-<h2>Received Messages</h2>
+<h2 class="show-title">Received Messages</h2>
 <% if @received_messages.any? %>
   <% @received_messages.each do |message| %>
-    <div>
+    <div class="message-card message-received">
       <p><strong>From:</strong> <%= message.sender.username %></p>
       <p><%= message.body %></p>
       <p><em>Received at: <%= message.created_at.strftime("%b %d, %Y %H:%M") %></em></p>
-      <hr>
     </div>
   <% end %>
 <% else %>
-  <p>No received messages.</p>
+  <p class="no-messages">No received messages.</p>
 <% end %>
 
 <hr>
 
-<h2>Sent Messages</h2>
+<h2 class="show-title">Sent Messages</h2>
 <% if @sent_messages.any? %>
   <% @sent_messages.each do |message| %>
-    <div>
+    <div class="message-card message-sent">
       <p><strong>To:</strong> <%= message.recipient.username %></p>
       <p><%= message.body %></p>
       <p><em>Sent at: <%= message.created_at.strftime("%b %d, %Y %H:%M") %></em></p>
-      <hr>
     </div>
   <% end %>
 <% else %>
-  <p>No sent messages.</p>
+  <p class="no-messages">No sent messages.</p>
 <% end %>
