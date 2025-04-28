@@ -41,6 +41,20 @@
       <p class="show-location"><strong>Location:</strong> <%= @listing.location %></p>
     </div>
 
+
+    <% if @listing.image.attached? %>
+      <div class="image-wrapper">
+        <%= image_tag @listing.image, alt: "Image of #{@listing.title}", class: "show-image" %>
+      </div>
+    <% else %>
+      <p>No image uploaded.</p>
+    <% end %>
+
+  
+  
+  
+
+
     <p class="show-description"><strong>Description:</strong> <%= @listing.description %></p>
 
     <% if @listing.user != current_user %>
