@@ -19,8 +19,8 @@
       </p>
     </div>
     <div class="header-right">
-      <div class="header-messages">
-        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      <div class="header-profile">
+        <a href="/messages/unified"> <%= image_tag "message-logo.png", alt: "Message Logo", class: "profile-click" %> </a>
       </div>
       <div class="header-profile">
         <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
@@ -41,10 +41,25 @@
       <p class="show-location"><strong>Location:</strong> <%= @listing.location %></p>
     </div>
 
+
+    <% if @listing.image.attached? %>
+      <div class="image-wrapper">
+        <%= image_tag @listing.image, alt: "Image of #{@listing.title}", class: "show-image" %>
+      </div>
+    <% else %>
+      <p>No image uploaded.</p>
+    <% end %>
+
+  
+  
+  
+
+
     <p class="show-description"><strong>Description:</strong> <%= @listing.description %></p>
 
-    <%= link_to "Message Seller", new_message_path(recipient_id: @listing.user.id), class: "btn btn-primary show-message-button" %>
-
+    <% if @listing.user != current_user %>
+      <%= link_to "Message Seller", new_message_path(recipient_id: @listing.user.id), class: "btn btn-primary show-message-button" %>
+    <% end %>
     <hr class="show-line">
 
     <div class="show-listing-buttons">

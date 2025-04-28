@@ -19,8 +19,8 @@
       </p>
     </div>
     <div class="header-right">
-      <div class="header-messages">
-        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      <div class="header-profile">
+        <a href="/messages/unified"> <%= image_tag "message-logo.png", alt: "Message Logo", class: "profile-click" %> </a>
       </div>
       <div class="header-profile">
         <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
@@ -41,7 +41,7 @@
   <div class="message-form-container">
     <%= form_with model: @message, local: true do |form| %>
       <div class="form-group">
-        <label>To: <%= @recipient.username %></label>
+        <label>To: <%= @recipient.displayname %></label>
         <%= form.hidden_field :recipient_id, value: @recipient.id %>
       </div>
 

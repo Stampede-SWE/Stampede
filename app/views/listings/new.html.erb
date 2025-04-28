@@ -20,8 +20,8 @@
       </p>
     </div>
     <div class="header-right">
-      <div class="header-messages">
-        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      <div class="header-profile">
+        <a href="/messages/unified"> <%= image_tag "message-logo.png", alt: "Message Logo", class: "profile-click" %> </a>
       </div>
       <div class="header-profile">
         <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
@@ -36,7 +36,7 @@
   <h1 class="edit-listing">Post a Listing</h1>
 
   <div class="new-listing">
-    <%= form_for @listing do |form| %>
+    <%= form_for @listing, html: {multipart:true } do |form| %>
 
       <% if @listing.errors.any? %>
         <div class="error_messages">
@@ -71,6 +71,11 @@
       <div class="field">
         <%= form.label :location %><br>
         <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
+      </div>
+
+      <div class="field">
+        <%= form.label :image %><br>
+        <%= form.file_field :image %>
       </div>
 
 
