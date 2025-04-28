@@ -1,0 +1,18 @@
+.show-image {
+  max-width: 300px;    
+  max-height: 400px;   
+  width: auto;         /* Maintain original width aspect */
+  height: auto;        /* Maintain original height aspect */
+  align-items: center; 
+  display: flex; 
+  justify-content: center; 
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* Or set a fixed height like 400px if needed */
+}
+  
+  
