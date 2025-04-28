@@ -78,12 +78,12 @@
 
       <div class="edit-labels">
         <%= form.label :category %>
-        <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], prompt: "Select a category"), { required: true } %> <!-- Added prompt -->
+        <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], form.object.category), { prompt: "Select a category",  required: true } %> <!-- Added prompt -->
       </div>
 
       <div class="edit-labels">
         <%= form.label :location %>
-        <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
+        <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], form.object.location), { prompt: "Select a campus", required: true } %> <!-- Added prompt -->
       </div>
 
       <div class="actions">

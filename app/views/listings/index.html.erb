@@ -32,6 +32,17 @@
   </div>
   <%# END OF HEADER! %>
  
+  <% if flash[:notice] %>
+    <div class="flash-message notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="flash-message alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
   <% if logged_in? %>
     
 
@@ -55,7 +66,9 @@
                         <%= image_tag listing.image, alt: "Image of #{listing.title}", class: "show-image" %>
                       </div>
                     <% else %>
-                      <p>No image uploaded.</p>
+                      <div class="image-wrapper">
+                        <p>No image uploaded.</p>
+                      </div>
                     <% end %>
                     <p class="listing-tag"><strong>Price:</strong> $<%= listing.price %></p>
                     <p class="listing-tag"><strong>Category:</strong> <%= listing.category %></p>

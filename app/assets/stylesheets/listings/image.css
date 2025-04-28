@@ -12,7 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px; /* Or set a fixed height like 400px if needed */
+  min-height: 150px;
+  max-height: 400px;
 }
   
   
