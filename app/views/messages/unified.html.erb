@@ -58,7 +58,8 @@
         <% else %>
           <p><strong>Listing: </strong> Listing not available </p>
         <% end %>
-        <p><strong>From:</strong> <%= message.sender.username %></p>
+        <p><strong>From:</strong> <%= message.sender.displayname %></p>
+        
         <p><%= message.body %></p>
         <p><em>Received at: <%= message.created_at.strftime("%b %d, %Y %H:%M") %></em></p>
         <% if message.listing.present? %>
@@ -81,7 +82,8 @@
         <% else %>
           <p><strong>Listing: </strong> Listing not available </p>
         <% end %>
-        <p><strong>To:</strong> <%= message.recipient.username %></p>
+        <p><strong>To:</strong> <%= message.recipient.displayname %></p>
+
         <p><%= message.body %></p>
         <p><em>Sent at: <%= message.created_at.strftime("%b %d, %Y %H:%M") %></em></p>
       </div>

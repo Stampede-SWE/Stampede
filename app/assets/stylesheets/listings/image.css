@@ -1,0 +1,19 @@
+.show-image {
+  max-width: 300px;    
+  max-height: 400px;   
+  width: auto;         /* Maintain original width aspect */
+  height: auto;        /* Maintain original height aspect */
+  align-items: center; 
+  display: flex; 
+  justify-content: center; 
+}
+
+.image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  max-height: 400px;
+}
+  
+  

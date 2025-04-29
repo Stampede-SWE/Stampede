@@ -42,6 +42,30 @@
         <%= form.text_field :title, style: "width: 97%" %>
       </div>
 
+      <% if @listing.image.attached? %>
+        <div class="image-wrapper">
+            <%= image_tag @listing.image, alt: "Image of #{@listing.title}", class: "show-image" %>
+        </div>
+      <% else %>
+          <p>No image uploaded.</p>
+      <% end %>
+      <br>
+
+      <% if @listing.errors.any? %>
+        <div class="error_messages">
+          <ul>
+            <% @listing.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="edit-labels">
+        <%= form.label :image %>
+        <%= form.file_field :image %>
+      </div>
+
       <div class="edit-labels">
         <%= form.label :description %>
         <%= form.text_area :description, style: "width: 97%; min-height: 60px;"%>
@@ -54,12 +78,12 @@
 
       <div class="edit-labels">
         <%= form.label :category %>
-        <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], prompt: "Select a category"), { required: true } %> <!-- Added prompt -->
+        <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], form.object.category), { prompt: "Select a category",  required: true } %> <!-- Added prompt -->
       </div>
 
       <div class="edit-labels">
         <%= form.label :location %>
-        <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
+        <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], form.object.location), { prompt: "Select a campus", required: true } %> <!-- Added prompt -->
       </div>
 
       <div class="actions">
