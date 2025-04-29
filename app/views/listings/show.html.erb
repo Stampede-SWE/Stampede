@@ -58,7 +58,7 @@
     <p class="show-description"><strong>Description:</strong> <%= @listing.description %></p>
 
     <% if @listing.user != current_user %>
-      <%= link_to "Message Seller", new_message_path(recipient_id: @listing.user.id), class: "btn btn-primary show-message-button" %>
+      <%= link_to "Message Seller", new_message_path(recipient_id: @listing.user.id, listing_id: @listing.id), class: "btn btn-primary show-message-button" %>
     <% end %>
     <hr class="show-line">
 

@@ -54,7 +54,7 @@ class ListingsController < ApplicationController
   def correct_user
     @listing = Listing.find(params[:id])
     unless @listing.user == current_user
-      redirect_to market_path, alert: "You can only manage your own listings."
+      redirect_to listings_path, alert: "You can only manage your own listings."
     end
 
   end

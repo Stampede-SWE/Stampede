@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     def new
       @message = Message.new
       @recipient = User.find(params[:recipient_id])
+      @listing = Listing.find(params[:listing_id])
     end
   
     def create
@@ -26,7 +27,7 @@ class MessagesController < ApplicationController
     private
   
     def message_params
-      params.require(:message).permit(:recipient_id, :body)
+      params.require(:message).permit(:recipient_id, :listing_id, :body)
     end
   end
   
