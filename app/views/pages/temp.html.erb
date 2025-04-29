@@ -19,6 +19,9 @@
       </p>
     </div>
     <div class="header-right">
+      <div class="header-messages">
+        <%= link_to "Messages", unified_messages_path, class: "logout-button" %>
+      </div>
       <div class="header-profile">
         <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
       </div>
@@ -29,3 +32,7 @@
   </div>
   <%# END OF HEADER! %>
 </body>
+
+
+
+

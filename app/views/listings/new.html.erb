@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
+
+<head>
+</head>
+
+
+<body>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
+    </div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-profile">
+        <a href="/messages/unified"> <%= image_tag "message-logo.png", alt: "Message Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+    </div>
+  </div>
+  <%# END OF HEADER! %>
+
+  <h1 class="edit-listing">Post a Listing</h1>
+
+  <div class="new-listing">
+    <%= form_for @listing, html: {multipart:true } do |form| %>
+
+      <% if @listing.errors.any? %>
+        <div class="error_messages">
+          <ul>
+            <% @listing.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :title %><br>
+        <%= form.text_field :title, required: true, placeholder: "Enter the title of the listing", style: "width: 95%" %> <!-- Added placeholder -->
+      </div>
+
+      <div class="field">
+        <%= form.label :description %><br>
+        <%= form.text_area :description, required: true, placeholder: "Describe the listing" %> <!-- Added placeholder -->
+      </div>
+
+      <div class="field">
+        <%= form.label :price, "Price (USD)" %><br>
+        <%= form.number_field :price, step: 0.01, required: true, placeholder: "Enter the price", style: "width: 95%"  %> <!-- Added placeholder -->
+      </div>
+
+      <div class="field">
+        <%= form.label :category %><br>
+        <%= form.select :category, options_for_select(["Textbooks & Materials", "Electronics", "Furniture & Home Decor", "Clothing & Accessories", "Food & Kitchen", "Sports & Fitness Equipment", "Entertainment & Hobbies", "Roommates & Housing", "Transportation", "Events & Tickets", "Miscellaneous"], prompt: "Select a category"), { required: true } %> <!-- Added prompt -->
+      </div>
+      
+      <div class="field">
+        <%= form.label :location %><br>
+        <%= form.select :location, options_for_select(["Tampa", "St. Petersburg", "Sarasota-Manatee"], prompt: "Select a campus"), { required: true } %> <!-- Added prompt -->
+      </div>
+
+      <div class="field">
+        <%= form.label :image %><br>
+        <%= form.file_field :image %>
+      </div>
+
+
+      <div class="actions">
+        <%= form.submit "Post Listing" %>
+        <%= link_to "Cancel", listings_path, class: "btn show-back-button" %>
+      </div>
+    <% end %>
+  </div>
+</body>

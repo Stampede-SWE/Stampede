@@ -37,6 +37,10 @@
 
       <%= form_for @user do |f| %>
         <div class="input-group">
+          <p class="input-header">Display Name<span style="color: red">&#42</span></p>
+          <%= f.text_field :displayname, class: "signup-input", placeholder: "Display Name", required: true, minlength: 3 %>
+        </div>
+        <div class="input-group">
           <p class="input-header">Create a username<span style="color: red">&#42</span></p>
           <%= f.text_field :username, class: "signup-input", placeholder: "Username", required: true, minlength: 5 %>
         </div>

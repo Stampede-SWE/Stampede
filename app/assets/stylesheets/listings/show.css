@@ -1,0 +1,161 @@
+/* Individual Listings Page */
+.show-container {
+    background-color: #f2f7f2;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    /* center of screen vertically */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Title styling */
+.show-title {
+    text-align: center;
+    font-size: 44px;
+    font-weight: bold;
+    color: #06593f;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+/* Div for Price, Category, and Location */
+.show-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.show-info p {
+    margin: 0;
+    padding: 5px;
+}
+
+.show-price, .show-category, .show-location {
+    flex-basis: 30%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+/* Description */
+.show-description {
+    margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+}
+
+/* Message Seller */
+.show-message-button {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    background-color: #006747;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.show-message-button:hover {
+    background-color: #179f74;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Line */
+.show-line {
+    width: 100%;
+    height: 4px;
+    border: none;
+    background-color: #175524;
+    border-radius: 10px;
+}
+
+
+/* Edit/Delete for signed in users */
+.show-listing-buttons {
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 100%;
+}
+
+
+/* Buttons after line */
+.show-back-button, .show-edit, .show-delete {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    padding: 10px 20px;
+    background-color: #175524;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.show-edit {
+    margin-left: 20%;
+    background-color: #175883;
+}
+.show-edit:hover {
+    background-color: #327fb3;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.show-delete {
+    margin-right: 20%;
+    background-color: #6a1e26;
+}
+.show-delete:hover {
+    background-color: #a43641;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.show-back-button {
+    margin-top: 30px;
+}
+
+
+/* Arrow and effects */
+.show-back-button::before {
+    content: "←";
+    margin-right: 8px;
+  }
+
+.show-back-button:hover {
+    background-color: #2e8140;
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+

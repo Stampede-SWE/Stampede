@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 
+<% content_for :stylesheets do %>
+<%= stylesheet_link_tag "pages/temp" %>
+<% end %>
+
 <head>
 </head>
 
 <body>
-    <div>
-        <p>
-            Welcome to Profile
-        </p>
+  <%# !START OF HEADER %>
+  <div class="header">
+    <div class="header-logo">
+      <%= image_tag "usf-logo.png", alt: "USF Logo", class: "header-logo" %>
     </div>
+    <div class="header-middle">
+      <p class="header-text">
+        Stampede
+      </p>
+    </div>
+    <div class="header-right">
+      <div class="header-profile">
+        <a href="/messages/unified"> <%= image_tag "message-logo.png", alt: "Message Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-profile">
+        <a href="/profile"> <%= image_tag "default-profile.png", alt: "Profile Logo", class: "profile-click" %> </a>
+      </div>
+      <div class="header-logout">
+        <%= button_to "Logout", logout_path, method: :delete, class: "logout-button" %>
+      </div>
+    </div>
+  </div>
+  <%# END OF HEADER! %>
+
+  <% if flash[:notice] %>
+    <div class="flash-message notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="flash-message alert">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <div class="profile-container">
+    <h2 class="profile-header"> <%= @user.displayname != "" && !!@user.displayname ? @user.displayname : @user.username %>'s Profile</h2>
+    <div class="profile-info">
+      <div class="info-type">
+        Display Name
+      </div>
+      <div class="info-text">
+        <%= @user.displayname %>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="info-type">
+        Username
+      </div>
+      <div class="info-text">
+        <%= @user.username %>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="info-type">
+        Password
+      </div>
+      <div class="info-text">
+        <a href="/reset-password"> Reset Password</a>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="info-type">
+        Phone Number
+      </div>
+      <div class="info-text">
+        <%= @user.phone %>
+      </div>
+    </div>
+    <div class="profile-info">
+      <div class="info-type">
+        Email
+      </div>
+      <div class="info-text">
+        <%= @user.email %>
+      </div>
+    </div>
+    <%= button_to "Edit Profile", "edit-profile", method: :get, class: 'profile-edit-button' %>
+    <%= button_to "Return", "listings", method: :get, class: 'to-profile-button' %>
+  </div>
 </body>
