@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_27_004136) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_29_184343) do
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -29,6 +29,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_27_004136) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "listing_id"
+    t.index ["listing_id"], name: "index_messages_on_listing_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_27_004136) do
   end
 
   add_foreign_key "listings", "Users", column: "user_id"
+  add_foreign_key "messages", "listings"
 end
